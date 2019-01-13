@@ -1,14 +1,24 @@
 import React, {Component} from 'react';
-import List from './List';
 import Title from './Title';
+import PhotoWall from './PhotoWall';
+
+const posts = [{
+        id: "0",
+        description: "Placholder1",
+        imageLink: "https://via.placeholder.com/150"
+    }, {
+        id: "1",
+        description: "Placholder2",
+        imageLink: "https://via.placeholder.com/150"
+
+    }]
 
 class Main extends Component {
     render() {
         return (
             <div>
-                <Title title={'toDos'}/>
-                <List tasks ={['Mow the law', 'walk the dog']}/>
-                <List tasks ={['hose the driveway', 'finish the lanudry']}/>
+                <Title title={'Photowall'}/>
+                <PhotoWall posts={posts}/>
             </div>
         )
     }
