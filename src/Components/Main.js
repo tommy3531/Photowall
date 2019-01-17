@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import Title from './Title';
 import PhotoWall from './PhotoWall';
+import Registration from './Registration';
+import User from './User';
+import {Route, Router, Switch} from 'react-router-dom';
 
 class Main extends Component {
     constructor() {
@@ -18,21 +21,45 @@ class Main extends Component {
             }]
         }
         this.removePhoto = this.removePhoto.bind(this);
+        console.log('Constructor')
     }
+
     removePhoto(postsRemoved) {
         console.log(postsRemoved.description);
         this.setState((state) => ({
             posts: state.posts.filter(post => post !== postsRemoved)
         }))
     }
+
+    componentDidMount() {
+        console.log('Component Did Mount')
+    }
+
+    componentDidUpdate() {
+        alert('re-render')
+    }
+    
     render() {
-        return (
+        console.log('Render')
+        return(
+        <div>
+            <Route exact path = "/" render={() => (
             <div>
                 <Title title={'Photowall'}/>
                 <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto}/>
             </div>
+            )}/>
+            <Route path ="/registration" component={Registration} />
+            <Route path ="/user" component={User} />
+            <Route path ="/home" component={Home} />
+            <Route path ="/about" component={About} />
+            <Route path ="/dashboard" component={Dashboard} />
+            
+        </div>
         )
+        
     }
 }
+
 
 export default Main
