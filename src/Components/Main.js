@@ -3,6 +3,9 @@ import Title from './Title';
 import PhotoWall from './PhotoWall';
 import Registration from './Registration';
 import User from './User';
+import Home from '../Home';
+import About from '../About';
+import Dashboard from '../Dashboard';
 import {Route, Router, Switch} from 'react-router-dom';
 
 class Main extends Component {
