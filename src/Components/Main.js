@@ -3,10 +3,11 @@ import Title from './Title';
 import PhotoWall from './PhotoWall';
 import Registration from './Registration';
 import User from './User';
-import Home from '../Home';
-import About from '../About';
+import Home from '../Pages/Home';
+import About from '../Pages/About';
 import Dashboard from '../Dashboard';
-import {Route, Router, Switch} from 'react-router-dom';
+import Twitter from '../API/Twitter';
+import {Route} from 'react-router-dom';
 
 class Main extends Component {
     constructor() {
@@ -57,6 +58,7 @@ class Main extends Component {
             <Route path ="/home" component={Home} />
             <Route path ="/about" component={About} />
             <Route path ="/dashboard" component={Dashboard} />
+            <Route path ="/twitter" component={Twitter} />
             
         </div>
         )
