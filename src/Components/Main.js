@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
+import {Route, BrowserRouter} from 'react-router-dom';
+
 
 // Common Components
 import Header from '../Common/Header';
-import Layout from '../Pages/Layout';
+import Footer from '../Common/Footer';
+import Navbar from '../Common/Navbar';
 
 // Pages
 import Home from '../Pages/Home';
@@ -10,9 +13,9 @@ import About from '../Pages/About';
 import Dashboard from '../Dashboard';
 import Twitter from '../API/Twitter';
 import PhotoWall from './PhotoWall';
+import Layout from '../Pages/Layout';
 
 // Routes
-import {Route} from 'react-router-dom';
 
 class Main extends Component {
     constructor() {
@@ -21,7 +24,7 @@ class Main extends Component {
             posts: [{
                 id: "0",
                 description: "Placholder1",
-                imageLink: "https://via.placeholder.c  om/150"
+                imageLink: "https://via.placeholder.com/150"
             }, {
                 id: "1",
                 description: "Placholder2",
@@ -51,19 +54,21 @@ class Main extends Component {
     render() {
         console.log('Render')
         return(
-            <div>
-                <Route exact path = "/" render={() => (
+            <BrowserRouter>
                 <div>
-                    <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto}/>
+                    <Route exact path = "/" render={() => (
+                    <div>
+                        <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto}/>
+                    </div>
+                    )}/>
+                    <Route path ="/home" component={Home} />
+                    <Route path ="/about" component={About} />
+                    <Route path ="/dashboard" component={Dashboard} />
+                    <Route path ="/twitter" component={Twitter} />
+                    <Route path ="/header" component={Header} />
+                    <Route path ="/layout" component={Layout} />
                 </div>
-                )}/>
-                <Route path ="/home" component={Home} />
-                <Route path ="/about" component={About} />
-                <Route path ="/dashboard" component={Dashboard} />
-                <Route path ="/twitter" component={Twitter} />
-                <Route path ="/header" component={Header} />
-                <Route path ="/layout" component={Layout} />
-            </div>
+            </BrowserRouter>
 
         )
         
