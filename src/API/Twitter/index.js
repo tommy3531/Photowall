@@ -15,8 +15,8 @@ class Twitter extends Component {
     render() {
         return (
             <ul>
-                {this.state.twitterData.map(({ title, body }) => 
-                    <li>{title}-{body}</li>
+                {this.state.twitterData.map(({ userId, title, body }) => 
+                    <li>{userId}-{title}-{body}</li>
                 )}
             </ul>
         );
